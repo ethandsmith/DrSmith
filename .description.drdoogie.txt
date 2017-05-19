@@ -1,1 +1,1 @@
-drdoogie
+This is the Dr. Doogie bot for STEEM and GOLOS.  Please have a look at the README.md file.
