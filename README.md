@@ -15,7 +15,7 @@
 
 #### Overview
 
-drdoogie (`drdoogie.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern.
+Dr. Doogie (`drdoogie.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern.
 
 ---
 
