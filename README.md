@@ -1,4 +1,4 @@
-* Title: drdoogie.rb - Vote Trail Script
+* Title: drdoogie.rb - Vote Trail Bot
 * Tags: radiator ruby steem steemdev curation
 * Notes: 
 
