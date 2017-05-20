@@ -50,6 +50,7 @@ def vote(trailing_vote, comment)
     
     @config[:voters].each do |voter|
       name, wif = voter.split(' ')
+      next if comment.active_votes.map(&:voter).include? name
       
       op = {
         type: :vote,
