@@ -1,5 +1,11 @@
 :voters:
   - social 5JrvPrQeBBvCRdjv29iDvkwn3EQYZ9jqfAHzrCyUvfbEbRkrYFC
+  
+:global:
+  # mode: head - the last block
+  # mode: irreversible - the block that is confirmed by 2/3 of all block
+  # producers and is thus irreversible!
+  :mode: head
 
 :trails:
   :banjo:

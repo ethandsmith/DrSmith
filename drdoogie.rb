@@ -72,13 +72,18 @@ loop do
   @api = Radiator::Api.new(@options.dup)
   @stream = Radiator::Stream.new(@options.dup)
   
+  mode = @config[:global][:mode].to_sym rescue :irreversible
+  
   begin
-    @stream.operations(:vote) do |op|
+    @stream.operations(:vote, nil, mode) do |op|
       next unless may_vote?(op)
       response = @api.get_content(op.author, op.permlink)
       comment = response.result
       
-      vote(op, comment)
+      Thread.new do
+        sleep 6 if mode == :head # to avoid a race condition on the node
+        vote(op, comment)
+      end
     end
   rescue => e
     puts "Unable to stream on current node.  Retrying in 5 seconds.  Error: #{e}"
