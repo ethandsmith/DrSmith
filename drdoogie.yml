@@ -2,6 +2,9 @@
   - social 5JrvPrQeBBvCRdjv29iDvkwn3EQYZ9jqfAHzrCyUvfbEbRkrYFC
   
 :global:
+  # Note, if you're playing the curation game, you'll probably want to use head
+  # mode.  This will usually cast your votes sooner.
+  #  
   # mode: head - the last block
   # mode: irreversible - the block that is confirmed by 2/3 of all block
   # producers and is thus irreversible!
