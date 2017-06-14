@@ -8,7 +8,7 @@
   # mode: head - the last block
   # mode: irreversible - the block that is confirmed by 2/3 of all block
   # producers and is thus irreversible!
-  :mode: head
+  :mode: irreversible
 
 :trails:
   :banjo:

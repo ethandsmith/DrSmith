@@ -77,17 +77,30 @@ loop do
   
   begin
     @stream.operations(:vote, nil, mode) do |op|
+      @backoff ||= 0.001
       next unless may_vote?(op)
       response = @api.get_content(op.author, op.permlink)
       comment = response.result
       
       Thread.new do
-        sleep 6 if mode == :head # to avoid a race condition on the node
         vote(op, comment)
       end
+      
+      @backoff = nil
     end
   rescue => e
-    puts "Unable to stream on current node.  Retrying in 5 seconds.  Error: #{e}"
-    sleep 5
+    m = e.message
+    
+    if m =~ /undefined method `transactions' for nil:NilClass/ && mode == :head
+      # Block hasn't reached the node yet.  Just retry with a small delay
+      # without reporting an error.
+      
+      sleep 0.2
+    else
+      puts "Pausing #{@backoff} :: Unable to stream on current node.  Error: #{e}"
+      
+      sleep @backoff
+      @backoff = [@backoff * 2, MAX_BACKOFF].min
+    end
   end
 end

@@ -2,6 +2,18 @@
 * Tags: radiator ruby steem steemdev curation
 * Notes: 
 
+#### Fixes
+
+* Added exponential back-off for errors.
+* When handling blocks in mode: `head`, just retrying without reporting an error.
+
+#### New Features
+
+* `global`
+  * `mode`
+    * `head` - the last block
+    * `irreversible` - (default) the block that is confirmed by 2/3 of all block producers and is thus irreversible!
+
 #### Features
 
 * YAML config.
