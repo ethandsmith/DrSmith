@@ -2,13 +2,13 @@
 
 Dr. Smith (`drsmith.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern. [Based on @inertia's "Dr. Doogie" voting bot,](https://gist.github.com/inertia186/d57c9bc744f05ada01d173521c01df8a) Dr. Smith allows absolute percentage voting instead of a scaled percentage.
 
-For example, Dr. Doogie would normally scale your account's vote to a percentage of the trailed account's vote, i.e. if you were trailing curie and it voted at 20% and your 'scale_votes' parameter was set at 5%, your account would vote at 1%.
+For example, Dr. Doogie would normally scale your account's vote to a percentage of the trailed account's vote, i.e. if you were trailing curie and it voted at 20% and your 'voting_weight' parameter was set at 5%, your account would vote at 1%.
 
-Dr. Smith, however, would vote on each post that curie voted on with the absolute value of 'scale_votes'
+Dr. Smith, however, would vote on each post that curie voted on with the absolute value of 'voting_weight'
 
 * Title: drsmith.rb - Vote Trail Bot
 * Tags: radiator ruby steem steemdev curation
-* Notes:
+* Notes: the original bot, Dr. Doogie, was created by @inertia186
 
 #### Changes
 
