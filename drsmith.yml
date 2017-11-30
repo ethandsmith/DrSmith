@@ -8,12 +8,12 @@
   # mode: head - the last block
   # mode: irreversible - the block that is confirmed by 2/3 of all block
   # producers and is thus irreversible!
-  :mode: irreversible
+  :mode: head
 
 :trails:
   :banjo:
     :voting_weight: 100.00 %
-    :max_age: 1440
+    :max_age: 9000 # value ranging from 0 to 10080
     :allow_upvote: true
     :allow_downvote: true
     :enable_comments: true

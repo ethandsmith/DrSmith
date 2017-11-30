@@ -45,8 +45,8 @@ def vote(trailing_vote, comment)
 
     puts "#{trailing_vote.voter} voted for #{trailing_vote.author}/#{trailing_vote.permlink} at #{trailing_vote.weight / 100.0} %"
 
-    scale = options[:voting_weight].to_f / 100
-    weight = scale.to_i
+    scale = trailing_vote.weight / (options[:voting_weight].to_f * 100)
+    weight = (trailing_vote.weight / scale).to_i
 
     @config[:voters].each do |voter|
       name, wif = voter.split(' ')
