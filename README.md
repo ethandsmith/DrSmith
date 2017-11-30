@@ -73,7 +73,7 @@ Edit `voting_weight` to your desired voting percentage
 
 Change other settings as necessary
 
-Return to Termiinal and run it:
+Return to Terminal and run it:
 
 ```bash
 $ ruby drsmith.rb
