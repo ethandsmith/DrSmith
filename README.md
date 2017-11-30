@@ -68,11 +68,6 @@ Then run it:
 $ ruby drsmith.rb
 ```
 
-Check here to see an updated version of this script:
-
-https://gist.github.com/inertia186/d57c9bc744f05ada01d173521c01df8a
-
----
 
 #### Upgrade
 
