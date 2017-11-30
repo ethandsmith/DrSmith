@@ -1,23 +1,16 @@
-* Title: drdoogie.rb - Vote Trail Bot
+* Title: drsmith.rb - Vote Trail Bot
 * Tags: radiator ruby steem steemdev curation
-* Notes: 
+* Notes:
 
-#### Fixes
+#### Changes
 
-* Added exponential back-off for errors.
-* When handling blocks in mode: `head`, just retrying without reporting an error.
+* 'voting_weight' - now represents your account's absolute voting percentage instead of a scaling factor based on the trailed account's voting percentage.
 
-#### New Features
-
-* `global`
-  * `mode`
-    * `head` - the last block
-    * `irreversible` - (default) the block that is confirmed by 2/3 of all block producers and is thus irreversible!
 
 #### Features
 
 * YAML config.
-  * `scale_votes` - scale votes in %
+  * `voting_weight` - your account's voting percentage
   * `max_age` - only vote if the post is under this number in minutes
   * `allow_upvote` - trail upvotes
   * `allow_downvote` - trail downvotes
@@ -25,9 +18,18 @@
   * `skip_tags` - do not vote if the post contains any of these tags
   * `only_tags` - only vote if the post includes at least one of these tags
 
+  * `global`
+    * `mode`
+      * `head` - the last block
+      * `irreversible` - (default) the block that is confirmed by 2/3 of all block producers and is thus irreversible!
+
 #### Overview
 
-Dr. Doogie (`drdoogie.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern.
+Dr. Smith (`drsmith.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern. [Based on @inertia's "Dr. Doogie" voting bot,](https://gist.github.com/inertia186/d57c9bc744f05ada01d173521c01df8a) Dr. Smith allows absolute percentage voting instead of a scaled percentage.
+
+For example, Dr. Doogie would normally scale your account's vote to a percentage of the trailed account's vote, i.e. if you were trailing curie and it voted at 20% and your 'scale_votes' parameter was set at 5%, your account would vote at 1%. 
+
+Dr. Smith, however, would vote on each post that curie voted on with the absolute value of 'scale_votes'
 
 ---
 
@@ -48,22 +50,22 @@ $ gem install bundler
 $ gem install bundler
 ```
 
-I've tested it on various versions of ruby.  The oldest one I got it to work was:
+Inertia has tested it on various versions of ruby.  The oldest one he got it to work was:
 
 `ruby 2.0.0p645 (2015-04-13 revision 50299) [x86_64-darwin14.4.0]`
 
 First, clone this gist and install the dependencies:
 
 ```bash
-$ git clone https://gist.github.com/d57c9bc744f05ada01d173521c01df8a.git drdoogie
-$ cd drdoogie
+$ git clone https://gist.github.com/45af1abb7eb11f87574f6c51e3a2d3a4.git drsmith
+$ cd drsmith
 $ bundle install
 ```
 
 Then run it:
 
 ```bash
-$ ruby drdoogie.rb
+$ ruby drsmith.rb
 ```
 
 Check here to see an updated version of this script:
@@ -97,14 +99,14 @@ If you're still having problems, I suggest starting a new clone.
 ##### Problem: What does this error mean?
 
 ```
-drdoogie.yml:1: syntax error, unexpected ':', expecting end-of-input
+drsmith.yml:1: syntax error, unexpected ':', expecting end-of-input
 ```
 
-##### Solution: You ran `ruby drdoogie.yml` but you should run `ruby drdoogie.rb`.
+##### Solution: You ran `ruby drsmith.yml` but you should run `ruby drsmith.rb`.
 
 ---
 
-##### Problem: Everything looks ok, but every time drdoogie tries to post, I get this error:
+##### Problem: Everything looks ok, but every time drsmith tries to post, I get this error:
 
 ```
 `from_base58': Invalid version (RuntimeError)
@@ -124,16 +126,12 @@ https://ripplerm.github.io/steem-servers/
 
 ---
 
-<center>
-  <img src="http://i.imgur.com/NPRdGlr.jpg" />
-</center>
-
-See my previous Ruby How To posts in: [#radiator](https://steemit.com/created/radiator) [#ruby](https://steemit.com/created/ruby)
+See Inertia's previous Ruby How To posts in: [#radiator](https://steemit.com/created/radiator) [#ruby](https://steemit.com/created/ruby)
 
 ## Get in touch!
 
-If you're using drdoogie, I'd love to hear from you.  Drop me a line and tell me what you think!  I'm @inertia on STEEM and [SteemSpeak](http://discord.steemspeak.com).
-  
+If you're using drsmith, I'd love to hear from you.  Drop me a line and tell me what you think!  I'm @ethandsmith on Steemit and [Discord](http://discordapp.com).
+
 ## License
 
-I don't believe in intellectual "property".  If you do, consider drdoogie as licensed under a Creative Commons [![CC0](http://i.creativecommons.org/p/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/) License.
+Dr. Smith is licensed under a Creative Commons [![CC0](http://i.creativecommons.org/p/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/) License.

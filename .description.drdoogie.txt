@@ -1,1 +1,1 @@
-This is the Dr. Doogie bot for STEEM and GOLOS.  Please have a look at the README.md file.
+This is the Dr. Smith bot for STEEM and GOLOS, which is a modification of inertia's drdoogie curation trail bot. Please have a look at the README.md file.
