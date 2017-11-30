@@ -1,10 +1,18 @@
+#### Overview
+
+Dr. Smith (`drsmith.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern. [Based on @inertia's "Dr. Doogie" voting bot,](https://gist.github.com/inertia186/d57c9bc744f05ada01d173521c01df8a) Dr. Smith allows absolute percentage voting instead of a scaled percentage.
+
+For example, Dr. Doogie would normally scale your account's vote to a percentage of the trailed account's vote, i.e. if you were trailing curie and it voted at 20% and your 'scale_votes' parameter was set at 5%, your account would vote at 1%.
+
+Dr. Smith, however, would vote on each post that curie voted on with the absolute value of 'scale_votes'
+
 * Title: drsmith.rb - Vote Trail Bot
 * Tags: radiator ruby steem steemdev curation
 * Notes:
 
 #### Changes
 
-* 'voting_weight' - now represents your account's absolute voting percentage instead of a scaling factor based on the trailed account's voting percentage.
+* `voting_weight` - now represents your account's absolute voting percentage instead of a scaling factor based on the trailed account's voting percentage.
 
 
 #### Features
@@ -22,14 +30,6 @@
     * `mode`
       * `head` - the last block
       * `irreversible` - (default) the block that is confirmed by 2/3 of all block producers and is thus irreversible!
-
-#### Overview
-
-Dr. Smith (`drsmith.rb`) is a voting bot that will trail the votes of other accounts in order to then mirror their voting pattern. [Based on @inertia's "Dr. Doogie" voting bot,](https://gist.github.com/inertia186/d57c9bc744f05ada01d173521c01df8a) Dr. Smith allows absolute percentage voting instead of a scaled percentage.
-
-For example, Dr. Doogie would normally scale your account's vote to a percentage of the trailed account's vote, i.e. if you were trailing curie and it voted at 20% and your 'scale_votes' parameter was set at 5%, your account would vote at 1%.
-
-Dr. Smith, however, would vote on each post that curie voted on with the absolute value of 'scale_votes'
 
 ---
 
@@ -62,11 +62,15 @@ $ cd drsmith
 $ bundle install
 ```
 Open the file drsmith.yml in terminal or in your favorite text editor (I recommend [Atom](http://atom.io)).
+
 Change "social" to the voting account username.
+
 Add your Private active key or Private posting key in place of the included key.
 
 Change "banjo" to the account you want to trail.
-Edit your voting_weight
+
+Edit `voting_weight` to your desired voting percentage
+
 Change other settings as necessary
 
 Return to Termiinal and run it:
