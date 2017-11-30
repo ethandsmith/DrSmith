@@ -1,5 +1,7 @@
 :voters:
   - social 5JrvPrQeBBvCRdjv29iDvkwn3EQYZ9jqfAHzrCyUvfbEbRkrYFC
+  # Format: [voting account] [WIF (posting or active)] 
+  # supports multiple voters
 
 :global:
   # Note, if you're playing the curation game, you'll probably want to use head
